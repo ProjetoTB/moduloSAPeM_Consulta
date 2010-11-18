@@ -1,0 +1,227 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Consulta Baseline</title>
+	<link rel="stylesheet" type="text/css" href="./css/styles.css" /> 
+	<link rel="stylesheet" type="text/css" href="./css/form_style.css" />
+	<link rel="stylesheet" type="text/css" href="./css/page_style.css" />
+	<link rel="stylesheet" type="text/css" href="./css/JScrollPane.css" />
+	<link rel="stylesheet" type="text/css" href="./css/smoothness/jquery-ui.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type='text/javascript' src="./js/JScrollPane.js"></script> 
+	<script type='text/javascript' src='./js/messages_ptbr.js'></script>
+	<script type='text/javascript' src='./js/tb.validation.jquery.js'></script>
+	<script type="text/javascript" src="js/actions.js"></script>
+</head>
+<body>
+<div id='mainFrame'>
+<div id='content'>
+	<div id='maincontent'>
+	<form id='form_consulta' id='form_consulta' action='cgi-bin/submitForm.py' method='POST'>
+		<fieldset>
+			<legend>RX de T&oacute;rax</legend>
+			<div id='divCavitacao' class='primary required'>
+				<label for='cavitacao'> Cavitaç&atilde;o:</label>
+				<select name='cavitacao' id='cavitacao' class='selectOne required'>
+					<option value=''        > ------      </option>
+					<option value='sim'     > Sim         </option>
+					<option value='nao'     > N&atilde;o  </option>
+					<option value='ignorado'> Ignorado    </option>
+				</select>
+			</div>
+			<div id='divPadrao' class='primary required'>
+				<label for='padrao'> Padr&atilde;o: </label>
+				<select name='padrao' id='padrao' class='selectOne required'>
+					<option value=''        	  > ------      	 </option>
+					<option value='padraoTipico'	  > T&iacute;pico        </option>
+					<option value='padraoAtipico'     > At&iacute;pico  	 </option>
+					<option value='padraoCompativel'  > Compat&iacute;vel    </option>
+				</select>
+			</div>
+			<div id='divcasoBaixaProbabilidade' class='secondary'>
+				<label for='casoBaixaProbabilidade' > &nbsp;</label>
+				<select name='casoBaixaProbabilidade' id='casoBaixaProbabilidade' class='selectOne'>
+					<option value=''        > ------      </option>
+					<option value='inativa_sequela'> TB inativa sequela </option>
+					<option value='outra'          > Outra doença       </option>
+					<option value='normal'         > Normal             </option>
+					<option value='ignorado'       > Ignorado           </option>
+					<option value='nsa'            > NSA                </option>
+				</select>
+			</div>
+			<div id='divProbabilidadeTBAtivaAposEstudoRX' class='primary required'>
+				<label for='probabilidadeTBAtivaAposEstudoRX'>Probabilidade de TB ativa ao avaliar o RXT:</label>
+				<input type='text' id='probabilidadeTBAtivaAposEstudoRX' name='probabilidadeTBAtivaAposEstudoRX' class='required' readonly/>
+			</div>
+			<div id='divDataRX' class='primary required'>
+				<label for='data_rx'> Data do RX:</label>
+				<input name="data_rx" id="data_rx" type="text" class='required'/>
+			</div>
+			<div id='divProbabilidadeTBClinicoRadiologica' class='primary required'>
+					<label for='probabilidadeTBClinicoRadiologica'> Probabilidade de TB Cl&iacute;nico-Radiol&oacute;gico: </label>
+					<input name='probabilidadeTBClinicoRadiologica' id='probabilidadeTBClinicoRadiologica' type='text' class='number required' size='4' maxlength='3'/> %
+			</div>
+			<div id='divFrasesAjuda'>
+				<p><b>Padrão típico </b>[Infiltrado em lobo(s) superior(es) e/ou segmento apical de lobo inferior]</p>
+				<p><b>Compatível </b>[Alargamento mediastinal ou linf. Hilar, padrão militar, ou derrame pleural]</p>
+				<p><b>Atípico </b>[Qualquer outro padrão]</p>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend> Comorbidades </legend>
+			<div id='divComorbidades' class='primary required'>
+				<fieldset>
+					<label for='comorbidades_0' class='labelCheckbox'>
+					<input id='comorbidades_0' name="comorbidades" value="doenca_renal_cronica" type="checkbox"/> Doença Renal Crônica
+					</label>
+					<label for='comorbidades_1' class='labelCheckbox'>
+					<input id='comorbidades_1' name="comorbidades" value="alcoolismo"     type="checkbox" /> Alcoolismo
+					</label>
+					<label for='comorbidades_2' class='labelCheckbox'>
+					<input id='comorbidades_2' name="comorbidades" value="neoplasia_maligna"   type="checkbox" /> Neoplasia maligna
+					</label>
+					<label for='comorbidades_3' class='labelCheckbox'>
+					<input id='comorbidades_3' name="comorbidades" value="diabetes_tipo_ii"      type="checkbox" /> Diabetes Tipo II
+					</label>
+					<label for='comorbidades_4' class='labelCheckbox'>
+					<input id='comorbidades_4' name="comorbidades" value="dpoc"     type="checkbox" /> DPOC
+					</label>
+					<label for='comorbidades_5' class='labelCheckbox'>
+					<input id='comorbidades_5'name="comorbidades" value="hepatopatia" type="checkbox" /> Hepatopatia
+					</label>
+					<label for='comorbidades_6' class='labelCheckbox'>
+					<input id='comorbidades_6' name="comorbidades" value="uso_corticoides"     type="checkbox" /> Uso de corticóides
+					</label>
+					<label for='comorbidades_7' class='labelCheckbox'>
+					<input id='comorbidades_7' name="comorbidades" value="transplante_orgaos"     type="checkbox" /> Transplante de órgãos
+					</label>
+					<label for='comorbidades_8' class='labelCheckbox'>
+					<input id='comorbidades_8' name="comorbidades" value="silicose_pulmonar"     type="checkbox" /> Silicose Pulmonar
+					</label>
+					<label for='comorbidades_9' class='labelCheckbox'>
+					<input id='comorbidades_9' name="comorbidades" value="doenca_pulmonar_difusa"     type="checkbox" /> Doença pulmonar difusa
+					</label>
+					<label for='nenhuma_comorbidade' class='labelCheckbox'>
+					<input id='nenhuma_comorbidade' name="comorbidades" value="nao"     type="checkbox" /> Sem comorbidades
+					</label>
+					<label for='comorbidades_outros' class='labelCheckbox'>
+						<input id='comorbidades_outros'name="comorbidades" value="outros" type="checkbox" /> Outros:
+					</label>
+					<input name="comorbidadesOutros" id="comorbidadesOutros" type="text" size='30' class='required' disabled/>
+				</fieldset>
+			</div>
+		</fieldset>
+		<fieldset>
+		<legend> Diagn&oacute;stico </legend>
+			<div id='divDiagnostico' class='primary required'>
+				<label for='diagnostico'> Diagn&oacute;stico: </label>
+				<select name='diagnostico' id='diagnostico' class='selectOne required'>
+					<option value="melhora"    type="radio" />TB pulmonar       </option>
+					<option value="inalterado" type="radio" />TB Extra-pulmonar </option>
+					<option value="piorado"    type="radio" />Pulmonar+Extra    </option>
+					<option value="nao_tb"     type="radio" />N&atilde;o TB   </option>
+					<option value="ignorado"   type="radio" />Ignorado   </option>
+				</select>
+			</div>
+			<div id='divRealizadoTesteSensibilidade' class='primary required'>
+				<label for='realizadoTesteSensibilidade'> Foi realizado teste de sensibilidade? </label>
+				<select name='realizadoTesteSensibilidade' id='realizadoTesteSensibilidade' class='selectOne required'>
+					<option value=''	> ---- 	</option>
+					<option value='sim'	> Sim 	</option>
+					<option value='nao'	> Não	</option>
+				</select>
+			</div>
+			<div id='divRespostaTesteSensibilidade' class='secondary'>
+				<label for='respostaTesteSensibilidade'></label>
+				<select name='respostaTesteSensibilidade' id='respostaTesteSensibilidade' style="width:220px;">
+					<option value='pacienteTrouxeResultadoDeFora'	> Paciente trouxe resultado de fora 	</option>
+					<option value='realizadoNoLocalDeAtendimento'	> Realizado no local de atendimento 	</option>
+				</select>
+			</div><br />
+			<div id='divTratamentoPrescritoTB' class='primary required'>
+				<label for='tratamentoPrescritoTB'>Tratamento prescrito para TB:</label>
+				<select name='tratamentoPrescritoTB' id='tratamentoPrescritoTB' class='selectOne required'>
+					<option value='ignorado' > Ignorado </option>
+					<option value='sim'> Sim  </option>
+					<option value='nao'> N&atilde;o  </option>
+				</select>
+			</div>
+			<div id='divDataInicio' class='secondary'>
+				<label for='data_inicio'> Data do início:</label>
+				<input  name="data_inicio" id="data_inicio" type="text" />
+			</div>
+			<div id='divTratamentoPrescritoTBFarmaco' class='secondary'>
+				<fieldset>
+					<legend>Farmacos Utilizados</legend>
+					<label for='tratamentoPrescritoTBFarmacos_0' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_0' name="tratamentoPrescritoTBFarmacos" value="rifampicina"    type="checkbox" /> Rifampicina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_1' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_1' name="tratamentoPrescritoTBFarmacos" value="isoniazida"     type="checkbox" /> Isoniazida
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_2' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_2' name="tratamentoPrescritoTBFarmacos" value="pirazinamida"   type="checkbox" /> Pirazinamida
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_3' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_3' name="tratamentoPrescritoTBFarmacos" value="etambutol"      type="checkbox" /> Etambutol
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_4' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_4' name="tratamentoPrescritoTBFarmacos" value="etionamida"     type="checkbox" /> Etionamida
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_5' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_5'name="tratamentoPrescritoTBFarmacos" value="estreptomicina" type="checkbox" /> Estreptomicina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_6' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_6' name="tratamentoPrescritoTBFarmacos" value="ofloxacina"     type="checkbox" /> Ofloxacina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_7' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_7' name="tratamentoPrescritoTBFarmacos" value="moxifloxacina"     type="checkbox" /> Moxifloxacina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_8' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_8' name="tratamentoPrescritoTBFarmacos" value="clofazimina"      type="checkbox" /> Clofazimina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_9' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_9' name="tratamentoPrescritoTBFarmacos" value="levofloxacina"      type="checkbox" /> Levofloxacina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_10' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_10' name="tratamentoPrescritoTBFarmacos" value="canamicina"      type="checkbox" /> Canamicina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_11' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_11' name="tratamentoPrescritoTBFarmacos" value="amicacina"      type="checkbox" /> Amicacina
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_12' class='labelCheckbox'>
+					<input id='tratamentoPrescritoTBFarmacos_12' name="tratamentoPrescritoTBFarmacos" value="terizidona"      type="checkbox" /> Terizidona
+					</label>
+					<label for='tratamentoPrescritoTBFarmacos_13' class='labelCheckbox'>
+						<input id='tratamentoPrescritoTBFarmacos_13' name="tratamentoPrescritoTBFarmacos" value="outros" type="checkbox" /> Outros:
+					</label>
+					<input name="farmacosOutros" id="farmacosOutros" type="text" size='50' disabled/>
+				</fieldset>
+			</div>
+			<div id='divObservacoes' class='primary'>
+				<label for='observacoes' class='labelTextarea'> Observações</label>
+				<textarea name="observacoes" id="observacoes" rows="5"></textarea>
+			</div>
+		</fieldset>
+		<fieldset>
+			<div id='divDataConsulta' name='divDataConsulta' class='primary required'>
+				<label for='dataConsulta'>Data da Consulta: </label>
+				<input id='dataConsulta' name='dataConsulta' size='50' class='required' disabled />
+			</div>
+			<div id='divAvaliador' name='divAvaliador' class='primary required'>
+				<label for='avaliador'>Avaliado por: </label>
+				<input id='avaliador' name='avaliador' class='required'/>
+			</div>
+		</fieldset>
+		<fieldset>
+			<div class='submit'><input value="Enviar Formul&aacute;rio" class='inputButton'  type="submit"></div>
+		</fieldset>
+	</form>
+	</div><!-- /maincontent-->
+</div><!-- content-->
+</div><!-- /mainFrame-->
+</body>
+</html>
