@@ -10,8 +10,8 @@
 (function($){
 	$.fn.writePortugueseDate = function(){
 		var element = $(this[0]);
-		var mydate=new Date()
-		var year=mydate.getYear()
+		var mydate=new Date();
+		var year=mydate.getYear();
 		if (year<2000)
 		year += (year < 1900) ? 1900 : 0
 		var day=mydate.getDay()
@@ -95,7 +95,6 @@ var resistent = new Array();
 
 //Document is ready, let's play
 $(document).ready(function(){
-
 	//Relation between forms
 	//Diagnóstico - Consulta e FollowUp
 	var urlString = $(location).attr('href');
@@ -288,8 +287,20 @@ $(document).ready(function(){
 		dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 	});
 
+	$('#dataConsulta').datepicker({
+		dateFormat: 'dd/mm/yy',
+		monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+		monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Aug','Set','Out','Nov','Dez'],
+		maxDate: '+0d',
+		changeMonth: true,
+		changeYear: true,
+		maxDate : '+0y',
+		minDate : '-130y',
+		yearRange : '-130:+130',
+		dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
+	});	
+	
 	$('#padrao').change(function(){
-
 		var baixa = new Array();
 		baixa[0] = '#divcasoBaixaProbabilidade';
 
@@ -381,15 +392,6 @@ $(document).ready(function(){
 				$(this).removeAttr('disabled');
 			});
 		}
-	});
-
-	$('#realizadoTesteSensibilidade').change(function(){
-		var dep = new Array();
-		dep[0] = '#divRespostaTesteSensibilidade';
-		if($(this).val()=='sim')
-			$().showFields(dep);
-		else if ($(this).val()=='nao')
-			$().hideFields(dep);
 	});
 
 	$('div.secondary').css('display', 'none');

@@ -23,10 +23,14 @@
 	<form id='form_consulta' id='form_consulta' action='cgi-bin/submitForm.py' method='POST'>
 		<fieldset>
 			<legend>RX de T&oacute;rax</legend>
+			<div id='divDataRX' class='primary required'>
+				<label for='data_rx'> Data do RX:</label>
+				<input name="data_rx" id="data_rx" type="text" class='required'/>
+			</div>
 			<div id='divCavitacao' class='primary required'>
 				<label for='cavitacao'> Cavitaç&atilde;o:</label>
 				<select name='cavitacao' id='cavitacao' class='selectOne required'>
-					<option value=''        > ------      </option>
+					<option value=''        > </option>
 					<option value='sim'     > Sim         </option>
 					<option value='nao'     > N&atilde;o  </option>
 					<option value='ignorado'> Ignorado    </option>
@@ -35,7 +39,7 @@
 			<div id='divPadrao' class='primary required'>
 				<label for='padrao'> Padr&atilde;o: </label>
 				<select name='padrao' id='padrao' class='selectOne required'>
-					<option value=''        	  > ------      	 </option>
+					<option value=''        	  >  </option>
 					<option value='padraoTipico'	  > T&iacute;pico        </option>
 					<option value='padraoAtipico'     > At&iacute;pico  	 </option>
 					<option value='padraoCompativel'  > Compat&iacute;vel    </option>
@@ -44,30 +48,25 @@
 			<div id='divcasoBaixaProbabilidade' class='secondary'>
 				<label for='casoBaixaProbabilidade' > &nbsp;</label>
 				<select name='casoBaixaProbabilidade' id='casoBaixaProbabilidade' class='selectOne'>
-					<option value=''        > ------      </option>
+					<option value=''        >      </option>
 					<option value='inativa_sequela'> TB inativa sequela </option>
 					<option value='outra'          > Outra doença       </option>
 					<option value='normal'         > Normal             </option>
 					<option value='ignorado'       > Ignorado           </option>
-					<option value='nsa'            > NSA                </option>
 				</select>
+			</div>
+			<div id='divFrasesAjuda'>
+				<p><b>Padrão típico </b>[Infiltrado em lobo(s) superior(es) e/ou segmento apical de lobo inferior]</p>
+				<p><b>Padrão compatível </b>[Alargamento mediastinal ou linf. Hilar, padrão militar, ou derrame pleural]</p>
+				<p><b>Padrão atípico </b>[Qualquer outro padrão]</p>
 			</div>
 			<div id='divProbabilidadeTBAtivaAposEstudoRX' class='primary required'>
 				<label for='probabilidadeTBAtivaAposEstudoRX'>Probabilidade de TB ativa ao avaliar o RXT:</label>
 				<input type='text' id='probabilidadeTBAtivaAposEstudoRX' name='probabilidadeTBAtivaAposEstudoRX' class='required' readonly/>
 			</div>
-			<div id='divDataRX' class='primary required'>
-				<label for='data_rx'> Data do RX:</label>
-				<input name="data_rx" id="data_rx" type="text" class='required'/>
-			</div>
 			<div id='divProbabilidadeTBClinicoRadiologica' class='primary required'>
 					<label for='probabilidadeTBClinicoRadiologica'> Probabilidade de TB Cl&iacute;nico-Radiol&oacute;gico: </label>
 					<input name='probabilidadeTBClinicoRadiologica' id='probabilidadeTBClinicoRadiologica' type='text' class='number required' size='4' maxlength='3'/> %
-			</div>
-			<div id='divFrasesAjuda'>
-				<p><b>Padrão típico </b>[Infiltrado em lobo(s) superior(es) e/ou segmento apical de lobo inferior]</p>
-				<p><b>Compatível </b>[Alargamento mediastinal ou linf. Hilar, padrão militar, ou derrame pleural]</p>
-				<p><b>Atípico </b>[Qualquer outro padrão]</p>
 			</div>
 		</fieldset>
 		<fieldset>
@@ -117,33 +116,20 @@
 		<fieldset>
 		<legend> Diagn&oacute;stico </legend>
 			<div id='divDiagnostico' class='primary required'>
-				<label for='diagnostico'> Diagn&oacute;stico: </label>
+				<label for='diagnostico'> Diagn&oacute;stico médico: </label>
 				<select name='diagnostico' id='diagnostico' class='selectOne required'>
-					<option value="melhora"    type="radio" />TB pulmonar       </option>
-					<option value="inalterado" type="radio" />TB Extra-pulmonar </option>
-					<option value="piorado"    type="radio" />Pulmonar+Extra    </option>
-					<option value="nao_tb"     type="radio" />N&atilde;o TB   </option>
-					<option value="ignorado"   type="radio" />Ignorado   </option>
+					<option value="" > </option>
+					<option value="melhora" >TB pulmonar       </option>
+					<option value="inalterado">TB Extra-pulmonar </option>
+					<option value="piorado">TB Pulmonar-Extra    </option>
+					<option value="nao_tb" >N&atilde;o TB   </option>
+					<option value="ignorado">Ignorado   </option>
 				</select>
 			</div>
-			<div id='divRealizadoTesteSensibilidade' class='primary required'>
-				<label for='realizadoTesteSensibilidade'> Foi realizado teste de sensibilidade? </label>
-				<select name='realizadoTesteSensibilidade' id='realizadoTesteSensibilidade' class='selectOne required'>
-					<option value=''	> ---- 	</option>
-					<option value='sim'	> Sim 	</option>
-					<option value='nao'	> Não	</option>
-				</select>
-			</div>
-			<div id='divRespostaTesteSensibilidade' class='secondary'>
-				<label for='respostaTesteSensibilidade'></label>
-				<select name='respostaTesteSensibilidade' id='respostaTesteSensibilidade' style="width:220px;">
-					<option value='pacienteTrouxeResultadoDeFora'	> Paciente trouxe resultado de fora 	</option>
-					<option value='realizadoNoLocalDeAtendimento'	> Realizado no local de atendimento 	</option>
-				</select>
-			</div><br />
 			<div id='divTratamentoPrescritoTB' class='primary required'>
 				<label for='tratamentoPrescritoTB'>Tratamento prescrito para TB:</label>
 				<select name='tratamentoPrescritoTB' id='tratamentoPrescritoTB' class='selectOne required'>
+					<option value=''> </option>
 					<option value='ignorado' > Ignorado </option>
 					<option value='sim'> Sim  </option>
 					<option value='nao'> N&atilde;o  </option>
@@ -209,7 +195,7 @@
 		<fieldset>
 			<div id='divDataConsulta' name='divDataConsulta' class='primary required'>
 				<label for='dataConsulta'>Data da Consulta: </label>
-				<input id='dataConsulta' name='dataConsulta' size='50' class='required' disabled />
+				<input id='dataConsulta' name='dataConsulta' type='text' size='30' class='required' />
 			</div>
 			<div id='divAvaliador' name='divAvaliador' class='primary required'>
 				<label for='avaliador'>Avaliado por: </label>
