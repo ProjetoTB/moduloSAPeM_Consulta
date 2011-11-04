@@ -23,29 +23,38 @@
 	<form id='form_consulta' id='form_consulta' action='cgi-bin/submitForm.py' method='POST'>
 		<fieldset>
 			<legend>RX de T&oacute;rax</legend>
-			<div id='divDataRX' class='primary required'>
-				<label for='data_rx'> Data do RX:</label>
-				<input name="data_rx" id="data_rx" type="text" class='required'/>
+			<div id='divRxRealizado' class='primary required'>
+				<label for='rxRealizado'> Raio X realizado? </label>
+				<select name='rxRealizado' id='rxRealizado' class='required'>
+					<option value=''		> </option>
+					<option value='sim'		> Sim </option>
+					<option value='nao'		> Não </option>
+					<option value='ignorado'> Ignorado </option>
+				</select>
 			</div>
-			<div id='divCavitacao' class='primary required'>
+			<div id='divDataRX' class='secondary'>
+				<label for='data_rx'> Data do RX:</label>
+				<input name="data_rx" id="data_rx" type="text"/>
+			</div>
+			<div id='divCavitacao' class='secondary'>
 				<label for='cavitacao'> Cavitaç&atilde;o:</label>
-				<select name='cavitacao' id='cavitacao' class='selectOne required'>
+				<select name='cavitacao' id='cavitacao'>
 					<option value=''        > </option>
 					<option value='sim'     > Sim         </option>
-					<option value='nao'     > N&atilde;o  </option>
+					<option value='nao'     > Não  </option>
 					<option value='ignorado'> Ignorado    </option>
 				</select>
 			</div>
-			<div id='divPadrao' class='primary required'>
-				<label for='padrao'> Padr&atilde;o: </label>
-				<select name='padrao' id='padrao' class='selectOne required'>
-					<option value=''        	  >  </option>
-					<option value='padraoTipico'	  > T&iacute;pico        </option>
-					<option value='padraoAtipico'     > At&iacute;pico  	 </option>
-					<option value='padraoCompativel'  > Compat&iacute;vel    </option>
+			<div id='divPadrao' class='secondary'>
+				<label for='padrao'> Padrão: </label>
+				<select name='padrao' id='padrao'>
+					<option value=''					>  </option>
+					<option value='padraoTipico'	  	> Típico        </option>
+					<option value='padraoAtipico'     	> Atípico  	 </option>
+					<option value='padraoCompativel'  	> Compatível    </option>
 				</select>
 			</div>
-			<div id='divcasoBaixaProbabilidade' class='secondary'>
+			<div id='divCasobaixaprobabilidade' class='secondary'>
 				<label for='casoBaixaProbabilidade' > &nbsp;</label>
 				<select name='casoBaixaProbabilidade' id='casoBaixaProbabilidade' class='selectOne'>
 					<option value=''        >      </option>
@@ -55,18 +64,18 @@
 					<option value='ignorado'       > Ignorado           </option>
 				</select>
 			</div>
-			<div id='divFrasesAjuda'>
+			<div id='divFrasesAjuda' class='secondary'>
 				<p><b>Padrão típico </b>[Infiltrado em lobo(s) superior(es) e/ou segmento apical de lobo inferior]</p>
 				<p><b>Padrão compatível </b>[Alargamento mediastinal ou linf. Hilar, padrão militar, ou derrame pleural]</p>
 				<p><b>Padrão atípico </b>[Qualquer outro padrão]</p>
 			</div>
-			<div id='divProbabilidadeTBAtivaAposEstudoRX' class='primary required'>
+			<div id='divProbabilidadeTBAtivaAposEstudoRX' class='secondary'>
 				<label for='probabilidadeTBAtivaAposEstudoRX'>Probabilidade de TB ativa ao avaliar o RXT:</label>
-				<input type='text' id='probabilidadeTBAtivaAposEstudoRX' name='probabilidadeTBAtivaAposEstudoRX' class='required' readonly/>
+				<input type='text' id='probabilidadeTBAtivaAposEstudoRX' name='probabilidadeTBAtivaAposEstudoRX' readonly/>
 			</div>
-			<div id='divProbabilidadeTBClinicoRadiologica' class='primary required'>
-					<label for='probabilidadeTBClinicoRadiologica'> Probabilidade de TB Cl&iacute;nico-Radiol&oacute;gico: </label>
-					<input name='probabilidadeTBClinicoRadiologica' id='probabilidadeTBClinicoRadiologica' type='text' class='number required' size='4' maxlength='3'/> %
+			<div id='divProbabilidadeTBClinicoRadiologica' class='secondary'>
+					<label for='probabilidadeTBClinicoRadiologica'> Probabilidade de TB Clínico-Radiológico: </label>
+					<input name='probabilidadeTBClinicoRadiologica' id='probabilidadeTBClinicoRadiologica' type='text' class='number' size='4' maxlength='3'/> %
 			</div>
 		</fieldset>
 		<fieldset>

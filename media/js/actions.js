@@ -132,7 +132,7 @@ $(document).ready(function(){
 							if($(el)[0].nodeType == xml.ELEMENT_NODE){
 							var tagname = $(el)[0].tagName;
 							idDiv = $('#'+tagname).parent().attr('id');
-							console.log(tagname + ' : ' + $(el).text());
+							//console.log(tagname + ' : ' + $(el).text());
 							var hlcolor = '#FFF8C6';
 							//Checkbox
 							if (tagname == 'comorbidades')
@@ -215,7 +215,8 @@ $(document).ready(function(){
 			}
 		}
 	});
-	$('#dataConsulta').writePortugueseDate();
+
+	//$('#dataConsulta').writePortugueseDate();
 
 	$.fn.showFields = function(argumento){
 		var dep = argumento;
@@ -249,6 +250,25 @@ $(document).ready(function(){
 			});
 			if($(dep[div]).css('display') != 'none')
 				$(dep[div]).toggle();
+		}
+	}
+
+	$.fn.showNotRequiredFields = function(argumento){
+		var dep = argumento;
+		for(div in dep){
+			var elems = $('*', dep[div]);
+			$(elems).each(function(){
+				var element = $(this);
+				if (   element[0].nodeName != 'FIELDSET'
+					&& element[0].nodeName != 'SMALL'
+					&& element[0].nodeName != 'OPTION')
+					$(this).removeAttr('disabled',false);
+				});
+			if($(dep[div]).css('display') != 'block')
+				$(dep[div]).toggle(function() {
+					$(this).css('background-color', hlcolor);
+					$(this).animate({backgroundColor : "white"}, 4000);
+					});
 		}
 	}
 
@@ -300,9 +320,31 @@ $(document).ready(function(){
 		dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
 	});	
 	
+	$('#rxRealizado').change(function(){
+		var secFieldsReq = new Array;
+		secFieldsReq[0] = '#divCavitacao';
+		secFieldsReq[1] = '#divPadrao';
+		secFieldsReq[2] = '#divCasobaixaprobabilidade';
+		secFieldsReq[3] = '#divFrasesAjuda';
+		secFieldsReq[4] = '#divProbabilidadeTBAtivaAposEstudoRX';
+		secFieldsReq[5] = '#divProbabilidadeTBClinicoRadiologica';
+
+		var secFieldsNotReq = new Array();
+		secFieldsNotReq[0] = '#divDataRX';
+
+		if ($(this).val() == 'sim'){
+			$().showFields(secFieldsReq);
+			$().showNotRequiredFields(secFieldsNotReq);
+		}
+		else{
+			$().hideFields(secFieldsReq);
+			$().hideFields(secFieldsNotReq);
+		}
+	});
+	
 	$('#padrao').change(function(){
 		var baixa = new Array();
-		baixa[0] = '#divcasoBaixaProbabilidade';
+		baixa[0] = '#divCasoBaixaProbabilidade';
 
 		//Definindo a probabilidade
 		if ($(this).val() == 'padraoTipico')
@@ -398,28 +440,19 @@ $(document).ready(function(){
 
 	$('#form_consulta').validate({
 		rules: {
-			localTuberculose: {
+			rxRealizado:{
 				required: true
-			},
-			desfechoTratamento: {
-				required: true
-			},
-			escoreRedeNeural:{
-				required: true,
 			},
 			probabilidadeTBAtivaAposEstudo:{
-				required: true,
 				number: true,
 				max: 100
-			},
-			data_rx:{
-				date: true,
-				required: true
 			},
 			probabilidadeTBClinicoRadiologica: {
-				required: true,
 				number: true,
 				max: 100
+			},
+			diagnostico: {
+				required: true
 			},
 			data_ultimo_tratamento:{
 				min: 1910,
