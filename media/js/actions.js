@@ -338,10 +338,9 @@ $(document).ready(function(){
 		var secFieldsReq = new Array;
 		secFieldsReq[0] = '#divCavitacao';
 		secFieldsReq[1] = '#divPadrao';
-		secFieldsReq[2] = '#divCasobaixaprobabilidade';
-		secFieldsReq[3] = '#divFrasesAjuda';
-		secFieldsReq[4] = '#divProbabilidadeTBAtivaAposEstudoRX';
-		secFieldsReq[5] = '#divProbabilidadeTBClinicoRadiologica';
+		secFieldsReq[2] = '#divFrasesAjuda';
+		secFieldsReq[3] = '#divProbabilidadeTBAtivaAposEstudoRX';
+		secFieldsReq[4] = '#divProbabilidadeTBClinicoRadiologica';
 
 		var secFieldsNotReq = new Array();
 		secFieldsNotReq[0] = '#divDataRX';
@@ -358,30 +357,23 @@ $(document).ready(function(){
 	
 	$('#padrao').change(function(){
 		var baixa = new Array();
-		baixa[0] = '#divCasoBaixaProbabilidade';
+		baixa[0] = '#divCasobaixaprobabilidade';
 
 		//Definindo a probabilidade
-		if ($(this).val() == 'padraoTipico')
+		if ($(this).val() == 'padraoTipico'){
 			$('#probabilidadeTBAtivaAposEstudoRX').val('Alta');
-		else if ($(this).val() == 'padraoCompativel')
-			$('#probabilidadeTBAtivaAposEstudoRX').val('Média');
-		else if ($(this).val() == 'padraoAtipico')
-		{
-			$('#probabilidadeTBAtivaAposEstudoRX').val('Baixa');
-				for(div in baixa){
-					if($(baixa[div]).css('display') != 'block')
-						$(baixa[div]).toggle(function() {
-								$(this).css('background-color', hlcolor);
-								$(this).animate({backgroundColor : "white"}, 4000);
-						});
-				}
-		}else
+			$().showNotRequiredFields(baixa);
+		}
+		else{
+			$().hideFields(baixa);
 			$('#probabilidadeTBAtivaAposEstudoRX').val('');
 
-		if($(this).val() != 'padraoAtipico')
-			for(div in baixa)
-				if($(baixa[div]).css('display') != 'none')
-					$(baixa[div]).toggle();
+			if ($(this).val() == 'padraoAtipico')
+				$('#probabilidadeTBAtivaAposEstudoRX').val('Baixa');
+			
+			if ($(this).val() == 'padraoCompativel')
+				$('#probabilidadeTBAtivaAposEstudoRX').val('Média')
+		}
 	});
 	$('#data_inicio').datepicker({
 		dateFormat: 'dd/mm/yy',
