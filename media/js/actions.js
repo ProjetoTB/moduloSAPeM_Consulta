@@ -360,16 +360,16 @@ $(document).ready(function(){
 		baixa[0] = '#divCasobaixaprobabilidade';
 
 		//Definindo a probabilidade
-		if ($(this).val() == 'padraoTipico'){
-			$('#probabilidadeTBAtivaAposEstudoRX').val('Alta');
+		if ($(this).val() == 'padraoAtipico'){
+			$('#probabilidadeTBAtivaAposEstudoRX').val('Baixa');
 			$().showNotRequiredFields(baixa);
 		}
 		else{
 			$().hideFields(baixa);
 			$('#probabilidadeTBAtivaAposEstudoRX').val('');
 
-			if ($(this).val() == 'padraoAtipico')
-				$('#probabilidadeTBAtivaAposEstudoRX').val('Baixa');
+			if ($(this).val() == 'padraoTipico')
+				$('#probabilidadeTBAtivaAposEstudoRX').val('Alta');
 			
 			if ($(this).val() == 'padraoCompativel')
 				$('#probabilidadeTBAtivaAposEstudoRX').val('Média')
