@@ -172,9 +172,10 @@ $(document).ready(function(){
 							if (tagname == 'tratamentoPrescritoTBFarmacos')
 							{
 								$('input[name=tratamentoPrescritoTBFarmacos]').each(function(){
-										if ($(el).text().search($(this).val()) != -1)
+										if ($(el).text().localeCompare($(this).val()) == 0){
 											$(this).attr('checked',true);
-										});
+										}
+									});
 							}
 							if (tagname == 'farmacosOutros')
 							{
