@@ -1,17 +1,20 @@
-<rxRealizado> Raio X realizado? </rxRealizado>
-<data_rx> Data do RX </data_rx>
-<cavitacao> Cavitaçao </cavitacao>
-<padrao> Padrão </padrao>
-<casoBaixaProbabilidade>  </casoBaixaProbabilidade>
-<probabilidadeTBAtivaAposEstudoRX> Probabilidade de TB ativa ao avaliar o RX </probabilidadeTBAtivaAposEstudoRX>
-<probabilidadeTBClinicoRadiologica> Probabilidade de TB Clínico-Radiológico </probabilidadeTBClinicoRadiologica>
-<comorbidades> Comorbidades </comorbidades>
-<comorbidadesOutros> Outros </comorbidadesOutros>
-<diagnostico> Diagnóstico médico  </diagnostico>
-<tratamentoPrescritoTB> Tratamento prescrito para TB </tratamentoPrescritoTB>
-<data_inicio> Data do início </data_inicio>
-<tratamentoPrescritoTBFarmacos> Farmacos Utilizados </tratamentoPrescritoTBFarmacos>
-<farmacosOutros> Outros </farmacosOutros>
-<observacoes> Observações </observacoes>
-<dataConsulta> Data da Consulta </dataConsulta>
-<avaliador> Avaliado por </avaliador>
+<?xml version="1.0" encoding="UTF-8" ?>
+<fields>
+	<rxRealizado> Raio X realizado? </rxRealizado>
+	<data_rx> Data do RX </data_rx>
+	<cavitacao> Cavitaçao </cavitacao>
+	<padrao> Padrão </padrao>
+	<casoBaixaProbabilidade>  </casoBaixaProbabilidade>
+	<probabilidadeTBAtivaAposEstudoRX> Probabilidade de TB ativa ao avaliar o RX </probabilidadeTBAtivaAposEstudoRX>
+	<probabilidadeTBClinicoRadiologica> Probabilidade de TB Clínico-Radiológico </probabilidadeTBClinicoRadiologica>
+	<comorbidades> Comorbidades </comorbidades>
+	<comorbidadesOutros> Outros </comorbidadesOutros>
+	<diagnostico> Diagnóstico médico  </diagnostico>
+	<tratamentoPrescritoTB> Tratamento prescrito para TB </tratamentoPrescritoTB>
+	<data_inicio> Data do início </data_inicio>
+	<tratamentoPrescritoTBFarmacos> Farmacos Utilizados </tratamentoPrescritoTBFarmacos>
+	<farmacosOutros> Outros </farmacosOutros>
+	<observacoes> Observações </observacoes>
+	<dataConsulta> Data da Consulta </dataConsulta>
+	<avaliador> Avaliado por </avaliador>
+</fields>
