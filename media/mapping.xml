@@ -8,7 +8,7 @@
 	<probabilidadeTBAtivaAposEstudoRX> Probabilidade de TB ativa ao avaliar o RX </probabilidadeTBAtivaAposEstudoRX>
 	<probabilidadeTBClinicoRadiologica> Probabilidade de TB Clínico-Radiológico </probabilidadeTBClinicoRadiologica>
 	<comorbidades> Comorbidades </comorbidades>
-	<comorbidadesOutros> Outros </comorbidadesOutros>
+	<comorbidadesOutros> Outras comorbidades </comorbidadesOutros>
 	<diagnostico> Diagnóstico médico  </diagnostico>
 	<tratamentoPrescritoTB> Tratamento prescrito para TB </tratamentoPrescritoTB>
 	<data_inicio> Data do início </data_inicio>
